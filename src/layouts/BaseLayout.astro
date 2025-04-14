@@ -1,0 +1,36 @@
+---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro'; // Import Navigation here
+import { ClientRouter } from 'astro:transitions';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+        <meta charset="UTF-8" />
+        <title>{title}</title>
+        {/* --- Google Fonts --- */}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+        <ClientRouter/>
+	</head>
+	<body>
+        <div class="page-wrapper">
+            {/* Card remains the transitioned element */}
+            <main class="card-container" transition:name="card-shape">
+                <div class="card-content-wrapper" transition:name="card-text">
+                    <slot /> {/* Page content goes here */}
+                </div>
+            </main>
+
+            <Navigation />
+        </div>
+	</body>
+</html>

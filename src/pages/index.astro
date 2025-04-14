@@ -1,14 +1,14 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Testimonials from '../components/Testimonials.astro';
-import Projects from '../components/Projects.astro';
-import Footer from '../components/Footer.astro';
+// src/pages/index.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<Layout>
-  <Hero />
-  <Testimonials />
-  <Projects />
-  <Footer />
-</Layout>
+<BaseLayout title="About Us | Bosson.io">
+	<h1>Hej från Bosson.io</h1>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu tellus et elit fringilla ornare id non quam. In ullamcorper interdum lectus sit amet tempus. Fusce mollis quam et faucibus mattis.
+	</p>
+    <p>
+        Känn dig som hemma!
+    </p>
+</BaseLayout>

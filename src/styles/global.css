@@ -1,0 +1,292 @@
+/* src/styles/global.css */
+
+
+:root {
+    /* Color Palette - Scandinavian Calm / IT Mystery */
+    --background-start: #2e3440; /* nord0 - Polar Night (Dark Grey/Blue) */
+    --background-end: #272c36;   /* Slightly darker variation */
+    --card-background: #eceff4; /* nord6 - Snow Storm (Very Light Grey/Off-White) */
+    --text-primary: #2e3440;   /* nord0 - Polar Night (High contrast on light bg) */
+    --text-secondary: #4c566a; /* nord3 - Polar Night (Medium Grey/Blue for paragraphs) */
+    --accent-color: #88c0d0;   /* nord8 - Frost (Light, calm blue/aqua accent) */
+    --accent-color-hover: #7ca9b8; /* Slightly darker/desaturated for hover */
+  
+    /* Shadows using darker Polar Night shades */
+    --shadow-color-light: rgba(46, 52, 64, 0.1);  /* Based on --background-start */
+    --shadow-color-dark: rgba(46, 52, 64, 0.07); /* Based on --background-start */
+  
+    /* Navigation Text Colors (Derived from --card-background) */
+    /* RGB for #eceff4 is rgb(236, 239, 244) */
+    --nav-text-inactive: rgba(236, 239, 244, 0.7);
+    --nav-text-active: rgba(236, 239, 244, 1);
+    --nav-text-hover: rgba(236, 239, 244, 0.9);
+  
+  
+    /* Spacing & Radius */
+    --card-max-width: 620px;
+    --card-padding-y: 3rem;
+    --card-padding-x: 2.8rem;
+    --border-radius: 16px;
+    --content-gap: 1.75rem; /* Gap for flex inside card */
+    --paragraph-margin-y: 1rem; /* Vertical margin for paragraphs */
+
+    /* Animation Timings */
+    --content-fade-duration: 0.6s;
+    --base-content-delay: 0.1s; /* Start content fade slightly after card starts expanding */
+    --stagger-delay: 0.2s; /* Delay between each content item */
+
+    /* Animation Timings for Custom Transition */
+    --vt-duration-long: 3s; /* Duration for new text fade-in */
+    --vt-duration-instant: 0s; /* Duration for old text fade-out */
+    --vt-easing: cubic-bezier(0.4, 0, 0.2, 1); /* Smooth easing */  
+  }
+  
+
+  
+
+  /* src/styles/global.css */
+
+/* ... other styles ... */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  /* ... rest of the styles ... */
+  html {
+    /* Apply the modern font */
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    scroll-behavior: smooth;
+    font-size: 16px; /* Base font size */
+  }
+  
+body {
+    background: linear-gradient(135deg, var(--background-start), var(--background-end));
+    background-attachment: fixed;
+    color: var(--text-secondary); /* Default text color - might be overridden by card */
+    display: flex;
+    justify-content: center; /* Center the wrapper horizontally */
+    align-items: center; /* Center the wrapper vertically */
+    min-height: 100vh;
+    padding: 2rem; /* More padding around the wrapper */
+    line-height: 1.7;
+    font-family: 'Inter', /* ... */;
+  }
+  
+  .page-wrapper {
+    display: flex;
+    flex-direction: column; /* Stack card and nav vertically */
+    align-items: center; /* Center items horizontally */
+    gap: 2.5rem; /* Space between card and navigation */
+    width: 100%; /* Allow content (like card) to take max-width */
+    max-width: var(--card-max-width); /* Ensure wrapper doesn't exceed card width unnecessarily */
+  }
+  
+  /* --- Card Container Styles (No major changes needed) --- */
+  .card-container {
+    background-color: var(--card-background);
+    padding: var(--card-padding-y) var(--card-padding-x);
+    border-radius: var(--border-radius);
+    box-shadow: 0 16px 40px var(--shadow-color-light), 0 6px 20px var(--shadow-color-dark);
+    width: 100%; /* Take full width of wrapper */
+    /* max-width is handled by page-wrapper now */
+    display: flex;
+    flex-direction: column;
+    gap: var(--content-gap);
+    position: relative;
+    /* Remove border if you added the temporary one */
+    /* border: 1px solid rgba(0, 0, 0, 0.07); */
+  }
+
+    /* NEW: Style for the inner content wrapper */
+  .card-content-wrapper {
+    display: block;
+  }
+
+  /* Content Styling inside Card - Add Staggered Fade-in */
+  .card-content-wrapper > h1,
+  .card-content-wrapper > p,
+  .card-content-wrapper > div, /* Add other direct children tags if needed */
+  .card-content-wrapper > ul,
+  .card-content-wrapper > ol,
+  .card-content-wrapper ul > li {
+  opacity: 0; /* Start content invisible */
+  animation: fade-slide-in-item var(--content-fade-duration) ease-out forwards;
+  }
+
+  /* Stagger the animation delays for content */
+  .card-content-wrapper > h1 { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 0); }
+  .card-content-wrapper > p:nth-of-type(1) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 1); }
+  .card-content-wrapper > p:nth-of-type(2) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 2); }
+  .card-content-wrapper > p:nth-of-type(3) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 3); }
+  .card-content-wrapper > p:nth-of-type(4) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 4); }
+  .card-content-wrapper > ul { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 4); }
+  .card-content-wrapper ul > li:nth-of-type(1) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 4); }
+  .card-content-wrapper ul > li:nth-of-type(2) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 5); }
+  /* Add more rules for other elements as needed, adjusting the multiplier */
+  /* Example: .card-content-wrapper > ul { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 4); } */
+
+  .card-container h1 {
+    color: var(--text-primary);
+    line-height: 1.3;
+    margin-bottom: 1.5rem; /* Increased bottom margin for heading */
+    /* Add margin-top if needed, e.g., if it's not the first element */
+    /* margin-top: 0; */
+  }
+  .card-container p {
+    color: var(--text-secondary);
+    /* --- MODIFIED: Add margin-top and use variable --- */
+    margin-top: var(--paragraph-margin-y);
+    margin-bottom: var(--paragraph-margin-y);
+  }
+
+  
+  /* --- UPDATED: Navigation Styles (Outside Card) --- */
+  .card-navigation {
+    /* Remove styles specific to being inside the card */
+    margin-top: 0; /* Reset margin */
+    padding-top: 0; /* Reset padding */
+    border-top: none; /* REMOVE border */
+  
+    /* General layout */
+    width: 100%; /* Take full available width */
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center; /* Center links within the nav */
+    flex-wrap: wrap;
+    background-color: transparent; /* Explicitly no background */
+  }
+  
+  .card-navigation a {
+    padding: 0.25rem 0; /* Adjust padding as needed */
+    margin: 0;
+    border-bottom: 5px solid transparent;
+    font-weight: 500;
+    /* NEW Color: Light for dark background */
+    color: var(--nav-text-inactive);
+    position: relative;
+    overflow: visible;
+    transition: color 0.2s ease;
+  }
+  
+  .card-navigation a::after {
+      content: '';
+      position: absolute;
+      /* Position underline below text */
+      bottom: -3px; /* Adjust spacing below text */
+      left: 0;
+      width: 100%;
+      height: 3px;
+      /* NEW Color: Use accent or white for indicator */
+      background-color: var(--accent-color); /* Use new accent for indicator */
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s ease;
+  }
+  
+  .card-navigation a.active {
+    /* NEW Color: Brighter white for active */
+    color: var(--nav-text-active);
+    font-weight: 700;
+    pointer-events: none;
+  }
+  .card-navigation a.active::after {
+      transform: scaleX(1);
+  }
+  
+  .card-navigation a:not(.active):hover,
+  .card-navigation a:not(.active):focus {
+      /* NEW Color: Brighter white on hover */
+      color: var(--nav-text-hover); /* Use new hover nav color */
+      background-color: transparent;
+  }
+  /* Keep hover effect for underline */
+  .card-navigation a:not(.active):hover::after {
+      transform: scaleX(1);
+      transform-origin: center;
+  }
+  
+  @keyframes fade-slide-in-item {
+    from {
+      opacity: 0;
+      transform: translateY(50px); /* Start slightly lower */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+
+/* --- Custom View Transition Styles --- */
+
+/* Keyframes for new text reveal */
+@keyframes vt-fade-in-slide {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Keyframe to instantly hide old text */
+@keyframes vt-instant-hide {
+  to {
+    opacity: 0;
+    /* visibility: hidden; */ /* Can use visibility if opacity isn't enough */
+   }
+}
+
+/* --- Styles for the TEXT transition --- */
+::view-transition-old(card-text) {
+  /* Hide old text instantly */
+  animation: vt-instant-hide var(--vt-duration-instant) linear forwards;
+  overflow: hidden; /* Prevent content bleed during hide */
+  pointer-events: none;
+}
+
+::view-transition-new(card-text) {
+  /* New text fades/slides in */
+  pointer-events: none;
+  animation: vt-fade-in-slide var(--vt-duration-long) var(--vt-easing) forwards;
+}
+
+/* --- Styles for the SHAPE transition --- */
+/* Let the browser handle default geometry animation */
+::view-transition-old(card-shape),
+::view-transition-new(card-shape) {
+  /* Ensure proper rendering, prevent blending issues */
+  mix-blend-mode: normal;
+  height: 100%; /* Important for group calculations */
+  pointer-events: none;
+}
+/* Optional: Add a subtle fade to the shape itself if desired */
+::view-transition-old(card-shape) { animation: vt-fade-out 0.2s ease-out forwards; pointer-events: none; } 
+::view-transition-new(card-shape) { animation: vt-fade-in 0.3s ease-in forwards; pointer-events: none;} 
+
+/* --- End Split View Transition Styles --- */
+
+
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    :root {
+      --card-padding-y: 2rem;
+      --card-padding-x: 1.5rem;
+      --content-gap: 1.5rem;
+    }
+    html {
+        font-size: 15px; /* Slightly smaller base font on mobile */
+    }
+    .card-content-wrapper h1 {
+      font-size: 1.8rem; /* Adjust heading size */
+    }
+    .card-content-wrapper p {
+      font-size: 0.95rem; /* Adjust paragraph size */
+    }
+    .card-navigation {
+        gap: 1rem;
+        margin-top: 0.5rem;
+    }
+    .card-navigation a {
+        padding: 0.4rem 0.6rem;
+    }
+  }

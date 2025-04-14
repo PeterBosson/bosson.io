@@ -1,0 +1,9 @@
+---
+// src/components/Navigation.astro
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="card-navigation" transition:name="card-nav">
+    <a href="/" class:list={{ active: currentPath === '/' }}>About Us</a>
+    <a href="/contact" class:list={{ active: currentPath === '/contact' }}>Contact Us</a>
+</nav>
