@@ -3,8 +3,8 @@
 
 :root {
     /* Color Palette - Scandinavian Calm / IT Mystery */
-    --background-start: #2e4156;
-    --background-mid: #354557;  
+    --background-start: #2f4a68;
+    --background-mid: #34475d;  
     --background-end: #18222e;
     --card-background: #e9ecef;
     --text-primary: #2e3440;   /* nord0 - Polar Night (High contrast on light bg) */
@@ -13,8 +13,8 @@
     --accent-color-hover: #526d8a;
   
     /* Shadows using darker Polar Night shades */
-    --shadow-color-light: rgba(46, 52, 64, 0.1);  /* Based on --background-start */
-    --shadow-color-dark: rgba(46, 52, 64, 0.07); /* Based on --background-start */
+    --shadow-color-light: rgba(46, 57, 64, 0.5);  /* Based on --background-start */
+    --shadow-color-dark: rgba(46, 54, 64, 0.3); /* Based on --background-start */
   
     /* Navigation Text Colors (Derived from --card-background) */
     /* RGB for #eceff4 is rgb(236, 239, 244) */
