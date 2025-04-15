@@ -334,7 +334,7 @@ body {
   }
 
   .card-container {
-    min-height: 27.5vh; /* Set minimum height (e.g., 50% of viewport height) */
+    min-height: 11.5rem; /* Set minimum height (e.g., 50% of viewport height) */
     display: flex; /* Enable flexbox for vertical centering */
     flex-direction: column; /* Stack content vertically */
     justify-content: center; /* Center content vertically */
