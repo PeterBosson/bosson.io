@@ -3,8 +3,9 @@
 
 :root {
     /* Color Palette - Scandinavian Calm / IT Mystery */
-    --background-start: #2c3e50; 
-    --background-end: #233140;
+    --background-start: #2e4156;
+    --background-mid: #354557;  
+    --background-end: #18222e;
     --card-background: #e9ecef;
     --text-primary: #2e3440;   /* nord0 - Polar Night (High contrast on light bg) */
     --text-secondary: #4c566a; /* nord3 - Polar Night (Medium Grey/Blue for paragraphs) */
@@ -58,7 +59,7 @@
   }
   
 body {
-    background: linear-gradient(135deg, var(--background-start), var(--background-end));
+    background: linear-gradient(155deg,  var(--background-mid), var(--background-start), var(--background-end));
     background-attachment: fixed;
     color: var(--text-secondary); /* Default text color - might be overridden by card */
     display: flex;
