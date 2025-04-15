@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Navigation from '../components/Navigation.astro'; // Import Navigation here
 import { ClientRouter } from 'astro:transitions';
 import Analytics from '@vercel/analytics/astro'
+import SpeedInsights from "@vercel/speed-insights/astro"
 
 interface Props {
 	title: string;
@@ -22,7 +23,7 @@ const { title } = Astro.props;
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
         <ClientRouter/>
         <Analytics/>
-	</head>
+        <SpeedInsights/>
 	<body>
         <div class="page-wrapper">
             {/* Card remains the transitioned element */}
