@@ -3,13 +3,13 @@
 
 :root {
     /* Color Palette - Scandinavian Calm / IT Mystery */
-    --background-start: #2e3440; /* nord0 - Polar Night (Dark Grey/Blue) */
-    --background-end: #272c36;   /* Slightly darker variation */
-    --card-background: #eceff4; /* nord6 - Snow Storm (Very Light Grey/Off-White) */
+    --background-start: #2c3e50; 
+    --background-end: #233140;
+    --card-background: #e9ecef;
     --text-primary: #2e3440;   /* nord0 - Polar Night (High contrast on light bg) */
     --text-secondary: #4c566a; /* nord3 - Polar Night (Medium Grey/Blue for paragraphs) */
-    --accent-color: #88c0d0;   /* nord8 - Frost (Light, calm blue/aqua accent) */
-    --accent-color-hover: #7ca9b8; /* Slightly darker/desaturated for hover */
+    --accent-color: #5f7f9f;   
+    --accent-color-hover: #526d8a;
   
     /* Shadows using darker Polar Night shades */
     --shadow-color-light: rgba(46, 52, 64, 0.1);  /* Based on --background-start */
@@ -17,8 +17,8 @@
   
     /* Navigation Text Colors (Derived from --card-background) */
     /* RGB for #eceff4 is rgb(236, 239, 244) */
-    --nav-text-inactive: rgba(236, 239, 244, 0.7);
-    --nav-text-active: rgba(236, 239, 244, 1);
+    --nav-text-inactive: rgba(233, 236, 239, 0.7);
+    --nav-text-active: rgba(233, 236, 239, 1);
     --nav-text-hover: rgba(236, 239, 244, 0.9);
   
   
@@ -49,6 +49,7 @@
 /* ... other styles ... */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   /* ... rest of the styles ... */
+
   html {
     /* Apply the modern font */
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -68,6 +69,20 @@ body {
     padding: 2rem; /* More padding around the wrapper */
     line-height: 1.7;
     font-family: 'Inter', /* ... */;
+  }
+
+  a {
+    color: var(--accent-color); /* Use main accent color */
+    text-decoration: none; /* Remove default underline */
+    transition: color 0.2s ease, text-decoration-color 0.2s ease; /* Smooth transitions */
+  }
+  
+  a:hover,
+  a:focus {
+    color: var(--accent-color-hover); /* Use hover accent color */
+    text-decoration: underline; /* Add underline on hover/focus */
+    text-decoration-color: var(--accent-color-hover); /* Match underline color */
+    outline: none; /* Optional: remove default focus outline */
   }
   
   .page-wrapper {
@@ -118,8 +133,8 @@ body {
   .card-content-wrapper > p:nth-of-type(3) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 3); }
   .card-content-wrapper > p:nth-of-type(4) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 4); }
   .card-content-wrapper > ul { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 4); }
-  .card-content-wrapper ul > li:nth-of-type(1) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 4); }
-  .card-content-wrapper ul > li:nth-of-type(2) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 5); }
+  .card-content-wrapper ul > li:nth-of-type(1) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 2); }
+  .card-content-wrapper ul > li:nth-of-type(2) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 3); }
   /* Add more rules for other elements as needed, adjusting the multiplier */
   /* Example: .card-content-wrapper > ul { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 4); } */
 
@@ -159,6 +174,7 @@ body {
     margin: 0;
     border-bottom: 5px solid transparent;
     font-weight: 500;
+    text-decoration: none; /* Override general style if needed */
     /* NEW Color: Light for dark background */
     color: var(--nav-text-inactive);
     position: relative;
@@ -214,6 +230,42 @@ body {
     }
   }
 
+
+  /* Add this CSS */
+.email-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.4em; /* Adjust vertical alignment */
+  width: 1em;  /* Icon width */
+  height: 1em; /* Icon height */
+  display: inline-block;
+  background-color: #888; /* Set icon color using mask */
+
+  /* Minimalist Envelope SVG - URL-encoded */
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'%3E%3C/path%3E%3Cpolyline points='22,6 12,13 2,6'%3E%3C/polyline%3E%3C/svg%3E");
+
+  /* Alternative using background-image if you prefer not to use mask */
+  /* background-image: url("data:image/svg+xml,..."); */
+  /* background-size: contain; */
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
+
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'%3E%3C/path%3E%3Cpolyline points='22,6 12,13 2,6'%3E%3C/polyline%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+/* Adjust padding-left on li to accommodate the icon */
+.email-list li {
+  padding-left: 1.8em; /* Might need more space */
+
+  /* ... other li styles */
+}
 
 
 /* --- Custom View Transition Styles --- */
