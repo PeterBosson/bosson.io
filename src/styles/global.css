@@ -106,6 +106,10 @@ body {
     gap: var(--content-gap);
     position: relative;
     text-align: center;
+    min-height: 14.5rem;
+    display: flex; /* Enable flexbox for vertical centering */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content vertically */
   }
 
   .card-content-wrapper {
@@ -334,10 +338,7 @@ body {
   }
 
   .card-container {
-    min-height: 11.5rem; /* Set minimum height (e.g., 50% of viewport height) */
-    display: flex; /* Enable flexbox for vertical centering */
-    flex-direction: column; /* Stack content vertically */
-    justify-content: center; /* Center content vertically */
+    min-height: 12rem; /* Set minimum height (e.g., 50% of viewport height) */
   }
 
   /* Adjust typography for better readability */
