@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Navigation from '../components/Navigation.astro'; // Import Navigation here
 import { ClientRouter } from 'astro:transitions';
+import Analytics from '@vercel/analytics/astro'
 
 interface Props {
 	title: string;
@@ -20,6 +21,7 @@ const { title } = Astro.props;
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
         <ClientRouter/>
+        <Analytics/>
 	</head>
 	<body>
         <div class="page-wrapper">
