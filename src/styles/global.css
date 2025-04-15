@@ -309,7 +309,7 @@ body {
 /* --- End Split View Transition Styles --- */
 
 
-@media (max-width: 768px) {
+@media (max-width: 1300px) and (orientation: portrait) {
   /* Adjust base font size if needed, 16px is often fine */
   html {
       font-size: 20px; 
