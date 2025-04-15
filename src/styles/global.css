@@ -65,7 +65,7 @@ body {
     display: flex;
     justify-content: center; /* Center the wrapper horizontally */
     align-items: center; /* Center the wrapper vertically */
-    min-height: 100vh;
+    min-height: 100dvh;
     padding: 2rem; /* More padding around the wrapper */
     line-height: 1.7;
     font-family: 'Inter', /* ... */;
