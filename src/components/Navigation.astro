@@ -6,15 +6,7 @@ const currentPath = Astro.url.pathname;
 const normalizedPath = currentPath.endsWith('/') && currentPath.length > 1
     ? currentPath.slice(0, -1)
     : currentPath;
-
-// --- FOR DEBUGGING (Optional) ---
-// You can uncomment this, deploy, and check your browser console
-// on the live site to see the exact paths being compared.
- console.log(`Raw Path: "${currentPath}", Normalized Path: "${normalizedPath}"`);
-// --- END DEBUGGING ---
 ---
-
-
 
 <nav class="card-navigation" transition:name="card-nav">
     <a href="/" class:list={{ active: normalizedPath === '/' }}>Om oss</a>
