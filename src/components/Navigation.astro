@@ -1,9 +1,22 @@
 ---
 // src/components/Navigation.astro
 const currentPath = Astro.url.pathname;
+// 1. Normalize the path: Remove trailing slash if it exists
+// 2. Handle root path: Ensure if path is just "/", it remains "/" after normalization
+const normalizedPath = currentPath.endsWith('/') && currentPath.length > 1
+    ? currentPath.slice(0, -1)
+    : currentPath;
+
+// --- FOR DEBUGGING (Optional) ---
+// You can uncomment this, deploy, and check your browser console
+// on the live site to see the exact paths being compared.
+ console.log(`Raw Path: "${currentPath}", Normalized Path: "${normalizedPath}"`);
+// --- END DEBUGGING ---
 ---
 
+
+
 <nav class="card-navigation" transition:name="card-nav">
-    <a href="/" class:list={{ active: currentPath === '/' }}>Om oss</a>
-    <a href="/contact" class:list={{ active: currentPath === '/contact' }}>Kontakta oss</a>
+    <a href="/" class:list={{ active: normalizedPath === '/' }}>Om oss</a>
+    <a href="/contact" class:list={{ active: normalizedPath === '/contact' }}>Kontakta oss</a>
 </nav>
