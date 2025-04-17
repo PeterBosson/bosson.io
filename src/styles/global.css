@@ -234,7 +234,6 @@ animation: fade-slide-in-item var(--content-fade-duration) ease-out forwards;
   left: 0;
   width: 100%;
   height: 3px;
-  /* NEW Color: Use accent or white for indicator */
   background-color: var(--accent-color); /* Use new accent for indicator */
   transform: scaleX(0);
   transform-origin: center;
