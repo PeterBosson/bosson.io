@@ -115,11 +115,23 @@ a:focus {
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
 }
-  
+
+.email-list {
+  list-style: none; /* Remove default list style */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  margin-top: 0;
+  position: relative; /* Position relative for absolute positioning of icons */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  gap: 0.5em; /* Space between items */
+}
+
 /* Adjust padding-left on li to accommodate the icon */
 .email-list li {
   padding-left: 1.8em; /* Might need more space */
-
+  font-size: 1em; 
+  margin-bottom: 0.5em;
   /* ... other li styles */
 }
 
@@ -164,7 +176,8 @@ a:focus {
 .card-content-wrapper > div, /* Add other direct children tags if needed */
 .card-content-wrapper > ul,
 .card-content-wrapper > ol,
-.card-content-wrapper ul > li {
+.card-content-wrapper ul > li,
+.email-list-wrapper {
 opacity: 0; /* Start content invisible */
 animation: fade-slide-in-item var(--content-fade-duration) ease-out forwards;
 }
@@ -176,6 +189,8 @@ animation: fade-slide-in-item var(--content-fade-duration) ease-out forwards;
 .card-content-wrapper > p:nth-of-type(3) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 3); }
 .card-content-wrapper > p:nth-of-type(4) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 4); }
 .card-content-wrapper > ul { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 4); }
+.card-content-wrapper > .email-list-wrapper:nth-of-type(1) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 2); }
+.card-content-wrapper > .email-list-wrapper:nth-of-type(2) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 4); }
 .card-content-wrapper ul > li:nth-of-type(1) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 2); }
 .card-content-wrapper ul > li:nth-of-type(2) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 3); }
 .card-content-wrapper ul > li:nth-of-type(3) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 4); }
