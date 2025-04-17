@@ -35,7 +35,7 @@
     --stagger-delay: 0.2s; /* Delay between each content item */
 
     /* Animation Timings for Custom Transition */
-    --vt-duration-long: 1.5s; /* Duration for new text fade-in */
+    --vt-duration-long: 0s; /* Duration for new text fade-in */
     --vt-duration-instant: 0s; /* Duration for old text fade-out */
     --vt-easing: cubic-bezier(0.4, 0, 0.2, 1); /* Smooth easing */  
 }
@@ -301,11 +301,6 @@ animation: fade-slide-in-item var(--content-fade-duration) ease-out forwards;
   overflow: hidden; /* Prevent content bleed during hide */
 }
 
-::view-transition-new(card-text) {
-  /* New text fades/slides in */
-  animation: vt-fade-in-slide var(--vt-duration-long) var(--vt-easing) forwards;
-}
-
 /* --- Styles for the SHAPE transition --- */
 /* Let the browser handle default geometry animation */
 ::view-transition-old(card-shape),
@@ -314,7 +309,6 @@ animation: fade-slide-in-item var(--content-fade-duration) ease-out forwards;
   mix-blend-mode: normal;
   height: 100%; /* Important for group calculations */
 }
-
 
 @media (max-width: 1300px) and (orientation: portrait) {
   /* Adjust base font size if needed, 16px is often fine */
