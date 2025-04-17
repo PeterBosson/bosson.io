@@ -184,16 +184,16 @@ animation: fade-slide-in-item var(--content-fade-duration) ease-out forwards;
 
 /* Stagger the animation delays for content */
 .card-content-wrapper > h1 { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 0); }
-.card-content-wrapper > p:nth-of-type(1) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 1); }
-.card-content-wrapper > p:nth-of-type(2) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 2); }
-.card-content-wrapper > p:nth-of-type(3) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 3); }
-.card-content-wrapper > p:nth-of-type(4) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 4); }
-.card-content-wrapper > ul { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 4); }
-.card-content-wrapper > .email-list-wrapper:nth-of-type(1) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 2); }
-.card-content-wrapper > .email-list-wrapper:nth-of-type(2) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 4); }
-.card-content-wrapper ul > li:nth-of-type(1) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 2); }
-.card-content-wrapper ul > li:nth-of-type(2) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 3); }
-.card-content-wrapper ul > li:nth-of-type(3) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 4); }
+.card-content-wrapper > p:nth-of-type(1) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 1.5); }
+.card-content-wrapper > p:nth-of-type(2) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 3); }
+.card-content-wrapper > p:nth-of-type(3) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 4); }
+.card-content-wrapper > p:nth-of-type(4) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 5); }
+.card-content-wrapper > ul { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 5); }
+.card-content-wrapper > .email-list-wrapper:nth-of-type(1) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 3); }
+.card-content-wrapper > .email-list-wrapper:nth-of-type(2) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 5); }
+.card-content-wrapper ul > li:nth-of-type(1) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 4); }
+.card-content-wrapper ul > li:nth-of-type(2) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 5.5); }
+.card-content-wrapper ul > li:nth-of-type(3) { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 7); }
 /* Add more rules for other elements as needed, adjusting the multiplier */
 /* Example: .card-content-wrapper > ul { animation-delay: calc(var(--base-content-delay) + var(--stagger-delay) * 4); } */
 
