@@ -2,11 +2,11 @@
   "rewrites": [
     {
       "source": "/csmoreless",
-      "destination": "https://cs-more-less.vercel.app/csmoreless/"
+      "destination": "https://cs-more-less.vercel.app/"
     },
     {
       "source": "/csmoreless/(.*)",
-      "destination": "https://cs-more-less.vercel.app/csmoreless/$1"
+      "destination": "https://cs-more-less.vercel.app/$1"
     },
     {
       "source": "/api/(.*)",
