@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/csmoreless",
+      "destination": "https://cs-more-less.vercel.app/csmoreless/"
+    },
+    {
+      "source": "/csmoreless/(.*)",
+      "destination": "https://cs-more-less.vercel.app/csmoreless/$1"
+    },
+    {
+      "source": "/api/(.*)",
+      "destination": "https://cs-more-less.vercel.app/api/$1"
+    }
+  ]
+}
