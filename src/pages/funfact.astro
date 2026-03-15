@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "bosson.io";
+
+
+---
+
+<BaseLayout title={title}>
+    <h1>Visste du att...</h1>
+    <p id="fact-display" class="fact-container">Laddar en rolig fakta...</p>
+</BaseLayout>
+
+<script>
+  async function loadFact() {
+    const factElement = document.getElementById('fact-display');
+    
+    // Check if the element was actually found
+    if (factElement) { 
+      try {
+        const response = await fetch('/api/get-translated-fact');
+        const data = await response.json();
+
+        if (response.ok) {
+          factElement.textContent = data.fact;
+        } else {
+          factElement.textContent = 'Kunde inte ladda fakta.';
+        }
+      } catch (error) {
+        console.error('Failed to fetch fact:', error);
+        factElement.textContent = 'Ett fel uppstod.';
+      }
+    } else {
+      console.error("Fatal Error: Could not find element with ID 'fact-display'");
+    }
+  }
+
+  loadFact();
+</script>
+
+<style>
+  .fact-container {
+    min-height: 10rem; 
+
+    /* Optional: Add a transition for smoother height changes if a fact is very long */
+    transition: height 3s ease-in-out;
+  }
+</style>

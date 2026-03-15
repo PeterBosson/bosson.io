@@ -9,8 +9,9 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@google-cloud/translate": "^9.2.0",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
-    "astro": "^5.6.1"
+    "astro": "^5.14.1"
   }
 }
