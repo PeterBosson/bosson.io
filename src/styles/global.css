@@ -312,7 +312,7 @@ animation: fade-slide-in-item var(--content-fade-duration) ease-out forwards;
 @media (max-width: 1300px) and (orientation: portrait) {
   /* Adjust base font size if needed, 16px is often fine */
   html {
-      font-size: 24px; 
+      font-size: 28px; 
   }
   /* Reduce body padding */
   body {
@@ -352,6 +352,16 @@ animation: fade-slide-in-item var(--content-fade-duration) ease-out forwards;
   }
    .card-navigation a {
       padding: 0.4rem 0.5rem; /* Adjust padding if needed */
+  }
+
+  .game-fab {
+    width: 100px !important;  /* Lite maffigare på mobilen */
+    height: 100px !important;
+  }
+  
+  .game-fab svg {
+    width: 48px !important;  /* Glöm inte att göra ikonen inuti lite större också! */
+    height: 48px !important;
   }
 }
 /* --- End Responsive adjustments --- */
